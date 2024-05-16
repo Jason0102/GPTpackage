@@ -6,17 +6,19 @@ from pathlib import Path
 import configparser
 from langchain.memory import ConversationBufferMemory
 
+API_KEY="inter your openai key"
+Model="inter model name from openai api"
+
 def showtime():
     currentDateAndTime = datetime.now()
     currentTime = currentDateAndTime.strftime("%H-%M-%S")
     print(currentTime)
 
 if __name__ == '__main__':
-    config = configparser.ConfigParser()
-    config.read('config.ini')
     path = Path('./prompts') / Path('vision_prompt.txt')
     agent = GPTopenai(
-        openai_api_key=config.get('openai', 'key1'), 
+        openai_api_key=API_KEY, 
+        model=MODEL,
         prompt=PromptTemplate(path), 
         text_memory=ConversationBufferMemory(memory_key="chat_history", return_messages=True, k=3),
         img_memory=ImageBufferMemory()
