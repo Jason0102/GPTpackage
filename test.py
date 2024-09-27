@@ -20,11 +20,13 @@ def embedding_retrieval():
     print(text)
 
 def chat_gpt():
+    stm = TextBuffer(buffer_size=3)
     agent = GPT(
         openai_api_key=API_KEY, 
         model=MODEL,
+        temperature=0,
         prompt=PromptTemplate('./prompts/vision_prompt.txt'), 
-        text_memory=TextBuffer(buffer_size=3),
+        text_memory=stm,
         img_memory=ImageBuffer()
     )
     text_dict = {'what': '你看到了幾個杯子?他們是什麼顏色的?'}
@@ -32,6 +34,8 @@ def chat_gpt():
     img_list = [encode_image(path)]
     result = agent.run(text_dict, img_list)
     print(result)
+    stm.set(['你看到了幾個杯子?他們是什麼顏色的?', result])
+    print(stm.get())
 
 if __name__ == "__main__":
     embedding_retrieval()
