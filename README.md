@@ -7,6 +7,6 @@ A python package requests GPT service from OpenAI.
 4. 提示詞模板
 
 ## example
-1. test.py
+1. gpt_example.py
 2. embedding_example.py
 
