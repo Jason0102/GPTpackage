@@ -2,12 +2,14 @@ from GPTpackage.LLMopenai import Embedding
 
 API_KEY='your key'
 DIR='folder of documents'
+MODEL="text-embedding-3-large"
 
 # 建立並儲存向量資料庫
 def construct_vector_db():
     model = Embedding(
         openai_api_key = API_KEY,
-        folder=DIR
+        folder=DIR,
+        model=MODEL
     )
     model.build_db()
     model.save_db('text_db.json')
@@ -16,7 +18,8 @@ def construct_vector_db():
 def load_and_retrieval():
     model = Embedding(
         openai_api_key = API_KEY,
-        folder=DIR
+        folder=DIR,
+        model=MODEL
     )
     model.load_db('text_db.json') 
     query = '聖誕節'
@@ -27,7 +30,8 @@ def load_and_retrieval():
 def load_and_add_file():
     model = Embedding(
         openai_api_key = API_KEY,
-        folder=DIR
+        folder=DIR,
+        model=MODEL
     )
     model.load_db('text_db.json') 
     model.add_doc('test.txt') # file test.txt must in folder ./conversation_history/
@@ -37,7 +41,8 @@ def load_and_add_file():
 def load_and_remove_file():
     model = Embedding(
         openai_api_key = API_KEY,
-        folder=DIR
+        folder=DIR,
+        model=MODEL
     )
     model.load_db('text_db.json') 
     model.remove_doc('test.txt') # file test.txt must in folder ./conversation_history/
