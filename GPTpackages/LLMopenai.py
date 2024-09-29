@@ -86,9 +86,10 @@ class GPT():
         return 'gpt error'
     
 class Embedding():
-    def __init__(self, openai_api_key:str, folder:str) -> None:
+    def __init__(self, openai_api_key:str, folder:str, model:str) -> None:
         self.folder = folder
         self.key = openai_api_key
+        self.model = model
         self.fileList = []
         self.documents = []
         self.vector_store = []
@@ -116,7 +117,7 @@ class Embedding():
         }
         data = {
             "input": text,
-            "model": "text-embedding-ada-002"
+            "model": self.model
         }
         for i in range(5):
             try:
