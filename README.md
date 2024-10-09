@@ -1,12 +1,15 @@
-# GPTpackage
+# GPTpackage: OpenAI gpt python extension for realtime API. 
 A python package requests GPT service from OpenAI.
+
 ## features
-1. 影像, 文字緩衝物件
-2. 可同時輸入圖片與文字的agent
-3. 文本嵌入物件，搭配MMR提取
-4. 提示詞模板
+1. GPT agent for text, image, and audio
+2. Buffer memory for text and image
+3. Document embedding with MMR retrieval
+4. Customized prompt template
+5. Support Realtime API using WebSockets
 
 ## example
 1. gpt_example.py
 2. embedding_example.py
+3. realtime_gpt_example.py
 
