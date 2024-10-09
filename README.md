@@ -1,4 +1,4 @@
-# GPTpackage: OpenAI gpt python extension for realtime API. 
+# GPTpackage: OpenAI gpt python extension for realtime API
 A python package requests GPT service from OpenAI.
 
 ## features
